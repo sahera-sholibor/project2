@@ -1,0 +1,132 @@
+    /**************************** Reset ************************** */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    /**************************** General Style *****************************/
+:root{
+    font-size: 10px;
+    /**************************** Colors *****************************/
+    --color-primary:rgb(248,250,252);
+
+    --color-secondary:rgb(82,214,244);
+
+    --color-tertiary:rgb(140,139,138);
+
+    --color-quaternary:hsl(192,40%,42%);
+    --color-quaternary-m-light:hsla(192,40%,42%,.1);
+    --color-quaternary-m-dark:hsla(192,40%,42%,.8);
+
+    --color-quinary:rgb(53,54,56);
+
+    --color-senary:rgb(255,255,255);
+
+    --color-septenary:rgb(59,130,246);
+    /***************************** Pading *****************************/
+    --pading-xl-h:calc(3rem + 6vw);
+    --pading-xl-v:calc(3rem + 6vh);
+
+    --pading-l-h:calc(3rem + 3vw);
+    --pading-l-v:calc(3rem + 3vh);
+
+    --pading-m-h:calc(2rem + 2vw);
+    --pading-m-v:calc(2rem + 2vh);
+
+    --pading-s-h:calc:(1rem + 2vw);
+    --pading-s-v:calc:(1rem + 2vh);
+
+    --pading-xs-h:calc(.5rem + 1vw);
+    --pading-xs-v:calc(.5rem + 1vh);
+    /***************************** Font Size **************************/
+    /* Dynamic */
+    --font-size-d-xl:calc(3rem + 3vw);
+    --font-size-d-l:calc(2rem + 2vw);
+    --font-size-d-m:calc(1rem + 2vw);
+    --font-size-d-s:calc(1rem + 1vw);
+    /* Static */
+    --font-size-st-l:3rem;
+    --font-size-st-m:2rem;
+    --font-size-st-s:1.5rem;
+    --font-size-st-xs:1rem;
+   
+    /***************************** Font Family ************************/
+    --font-family-main:'Montserrat';
+    --font-family-sub:'Varta';
+}
+body{
+    font-family: var(--font-family-sub);
+    background-color: var(--color-primary);
+    line-height: 1.5;
+}
+a{
+    text-decoration: none;
+    color: var();
+}
+li{
+    list-style: none;
+}
+/* ____________________ Layout ___________________ */
+/* .container{
+    background-color: rgb(116, 115, 117);
+    display: grid;
+    grid-template-columns:
+    [container-start] 1fr
+    [center-start]
+    repeat(10,[col-start] minmax(min-content,11rem)[col-end])
+    [center-end]
+    1fr [container-end];
+
+    grid-template-rows: repeat(3,min-content);
+
+} */
+#main-container{
+    display: grid;
+    grid-template-columns: [main-start]repeat(16,minmax(min-content,9.375rem))[main-end];
+    grid-template-rows: repeat(7,min-content);
+    justify-content: center;
+}
+/* -------------------------------------------------------header */
+.header{
+    background-color: var(--color-primary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
+/* -------------------------------------------------------hero */
+.hero{
+    background-color: var(--color-quaternary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
+/* -------------------------------------------------------work */
+.work{
+    background-color: var(--color-quinary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
+/* -------------------------------------------------------featuers */
+.featuers{
+    background-color: var(--color-tertiary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
+/* -------------------------------------------------------contact */
+.contact{
+    background-color: var(--color-quaternary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
+/* -------------------------------------------------------team */
+.team{
+    background-color: var(--color-quinary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
+/* -------------------------------------------------------footer */
+.footer{
+    background-color: var(--color-senary);
+    height: 500px;
+    grid-column: main-start/main-end;
+}
