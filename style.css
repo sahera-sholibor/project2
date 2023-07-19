@@ -35,8 +35,8 @@
     --pading-m-h:calc(2rem + 2vw);
     --pading-m-v:calc(2rem + 2vh);
 
-    --pading-s-h:calc:(1rem + 2vw);
-    --pading-s-v:calc:(1rem + 2vh);
+    --pading-s-h:calc(1rem + 2vw);
+    --pading-s-v:calc(1rem + 2vh);
 
     --pading-xs-h:calc(.5rem + 1vw);
     --pading-xs-v:calc(.5rem + 1vh);
@@ -69,19 +69,6 @@ li{
     list-style: none;
 }
 /* ____________________ Layout ___________________ */
-/* .container{
-    background-color: rgb(116, 115, 117);
-    display: grid;
-    grid-template-columns:
-    [container-start] 1fr
-    [center-start]
-    repeat(10,[col-start] minmax(min-content,11rem)[col-end])
-    [center-end]
-    1fr [container-end];
-
-    grid-template-rows: repeat(3,min-content);
-
-} */
 #main-container{
     display: grid;
     grid-template-columns: [main-start]repeat(16,minmax(min-content,9.375rem))[main-end];
@@ -91,12 +78,53 @@ li{
 /* -------------------------------------------------------header */
 .header{
     background-color: var(--color-primary);
-    height: 500px;
     grid-column: main-start/main-end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--pading-m-v) var(--pading-m-h);
 }
+.header__nav,
+.header__nav--links,
+.header__nav--register{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 1vw;
+}
+.header__nav{
+    width: 100%;
+    justify-content:flex-end;
+    z-index: 10;
+    
+}
+.header__nav--links a,
+.header__nav--register a{
+    color: var(--color-quaternary);
+    font-size: var(--font-size-st-s);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    border-bottom: 1px solid var(--color-quaternary-m-dark);
+    transition: all .25s ease-in-out;
+}
+.header__nav--links a:hover,
+.header__nav--register a:hover{
+    background-color: var(--color-quaternary-m-dark);
+    color: var(--color-senary);
+}
+.header__logo h3{
+    font-size: var(--font-size-st-l);
+    color: var(--color-septenary);
+}
+.header__logo h3 span{
+    color: var(--color-quaternary);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
 /* -------------------------------------------------------hero */
 .hero{
-    background-color: var(--color-quaternary);
+    background-color: var(--color-senary);
     height: 500px;
     grid-column: main-start/main-end;
 }
@@ -129,4 +157,92 @@ li{
     background-color: var(--color-senary);
     height: 500px;
     grid-column: main-start/main-end;
+}
+/* ----______*********________ Media 750px ________********______---- */
+@media screen and (max-width:750px){
+    /* ---------------------- header ------------------ */
+    .header{
+        padding: var(--pading-s-v) var(--pading-s-h);
+        justify-content: center;
+        background-color: var(--color-quinary);
+    }
+    .header__logo h3 span{
+        color: var(--color-senary);
+    }
+    /* ------------------ re-orienting nav links ---------------- */
+    .header__nav{
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 30rem;
+        height: 100vh;
+        padding: 3rem;
+        gap: 4rem !important;
+        background-color: var(--color-quinary);
+        transform: translateX(-100rem);
+        transition: all .5s cubic-bezier(1,0,0,1);
+    }
+    .header__nav,
+    .header__nav--links,
+    .header__nav--register{
+    flex-direction: column;
+    gap: 1rem;
+}
+.header__nav--links a,
+.header__nav--register a{
+    color: var(--color-primary);
+    margin-top: 3rem;
+}
+    /* ------------------ hamburger menu ---------------- */
+    .hamburger{
+        position: fixed;
+        top: 4rem;
+        right: 4rem;
+        width: 5rem;
+        height: 5rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+    .hamburger-line{
+        position: absolute;
+        width: 3rem;
+        height: .25rem;
+        background-color: var(--color-quaternary);
+    }
+    .hamburger-line:first-child{
+        width: 2rem;
+        top: 0;
+        left: 0;
+        transition: all .5s ease-in-out
+    }
+    .hamburger-line:nth-child(2){
+        width: 3.5rem;
+        top: 1rem;
+        left: 0;
+        transition: all .2s ease-in-out
+    }
+    .hamburger-line:nth-child(3){
+        width: 5rem;
+        top: 2rem;
+        left: 0;
+        transition: all .5s ease-in-out
+    }
+    /* --------- Toglling Nav Bar ------ */
+    .line-1{
+        transform: rotate(405deg) translate(.3rem, 1.5rem);
+        width: 3.5rem !important;
+
+    }
+    .line-2{
+       visibility: hidden; 
+    }
+    .line-3{
+        transform: rotate(-405deg) translate(0, -1.15rem);
+        width: 3.5rem !important;
+    }
+    .block.visible{
+        transform: translateX(0);
+        transition: all .5s ease-in-out;
+    }
 }
